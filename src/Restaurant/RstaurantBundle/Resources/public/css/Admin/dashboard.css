@@ -1,0 +1,446 @@
+/* Space out content a bit */
+/* line 2, stdin */
+body {
+  padding-bottom: 20px; }
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+/* line 7, stdin */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+/* Custom page header */
+/* line 15, stdin */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  /* Make the masthead heading the same height as the navigation */ }
+  /* line 18, stdin */
+  .header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px; }
+
+/* Custom page footer */
+/* line 27, stdin */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5; }
+
+/* Customize container */
+@media (min-width: 768px) {
+  /* line 35, stdin */
+  .container {
+    max-width: 730px; } }
+
+/* line 40, stdin */
+.container-narrow > hr {
+  margin: 30px 0; }
+
+/* Main marketing message and sign up button */
+/* line 45, stdin */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5; }
+  /* line 48, stdin */
+  .jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px; }
+
+/* Supporting marketing content */
+/* line 55, stdin */
+.marketing {
+  margin: 40px 0; }
+
+/* line 59, stdin */
+.marketing p + h4 {
+  margin-top: 28px; }
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  /* line 66, stdin */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0; }
+  /* Space out the masthead */
+  /* line 73, stdin */
+  .header {
+    margin-bottom: 30px; }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  /* line 77, stdin */
+  .jumbotron {
+    border-bottom: 0; } }
+
+/* line 82, stdin */
+.nav > li.active > a {
+  text-decoration: none;
+  background-color: #eee; }
+
+/*sb-admin -2*/
+/*!
+ * Start Bootstrap - SB Admin 2 Bootstrap Admin Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+/* line 94, stdin */
+body {
+  background-color: #f8f8f8; }
+
+/* line 98, stdin */
+#wrapper {
+  width: 100%; }
+
+/* line 102, stdin */
+#page-wrapper {
+  padding: 0 15px;
+  min-height: 568px;
+  background-color: #fff; }
+
+@media (min-width: 768px) {
+  /* line 109, stdin */
+  #page-wrapper {
+    position: inherit;
+    margin: 0 0 0 250px;
+    padding: 0 30px;
+    border-left: 1px solid #e7e7e7; } }
+
+/* line 117, stdin */
+.navbar-top-links {
+  margin-right: 0; }
+
+/* line 121, stdin */
+.navbar-top-links li {
+  display: inline-block; }
+
+/* line 125, stdin */
+.navbar-top-links li:last-child {
+  margin-right: 15px; }
+
+/* line 129, stdin */
+.navbar-top-links li a {
+  padding: 15px;
+  min-height: 50px; }
+
+/* line 134, stdin */
+.navbar-top-links .dropdown-menu li {
+  display: block; }
+
+/* line 138, stdin */
+.navbar-top-links .dropdown-menu li:last-child {
+  margin-right: 0; }
+
+/* line 142, stdin */
+.navbar-top-links .dropdown-menu li a {
+  padding: 3px 20px;
+  min-height: 0; }
+
+/* line 147, stdin */
+.navbar-top-links .dropdown-menu li a div {
+  white-space: normal; }
+
+/* line 151, stdin */
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks,
+.navbar-top-links .dropdown-alerts {
+  width: 310px;
+  min-width: 0; }
+
+/* line 158, stdin */
+.navbar-top-links .dropdown-messages {
+  margin-left: 5px; }
+
+/* line 162, stdin */
+.navbar-top-links .dropdown-tasks {
+  margin-left: -59px; }
+
+/* line 166, stdin */
+.navbar-top-links .dropdown-alerts {
+  margin-left: -123px; }
+
+/* line 170, stdin */
+.navbar-top-links .dropdown-user {
+  right: 0;
+  left: auto; }
+
+/* line 175, stdin */
+.sidebar .sidebar-nav.navbar-collapse {
+  padding-right: 0;
+  padding-left: 0; }
+
+/* line 180, stdin */
+.sidebar .sidebar-search {
+  padding: 15px; }
+
+/* line 184, stdin */
+.sidebar ul li {
+  border-bottom: 1px solid #e7e7e7; }
+
+/* line 188, stdin */
+.sidebar ul li a.active {
+  background-color: #eee; }
+
+/* line 192, stdin */
+.sidebar .arrow {
+  float: right; }
+
+/* line 196, stdin */
+.sidebar .fa.arrow:before {
+  content: "\f104"; }
+
+/* line 200, stdin */
+.sidebar .active > a > .fa.arrow:before {
+  content: "\f107"; }
+
+/* line 204, stdin */
+.sidebar .nav-second-level li,
+.sidebar .nav-third-level li {
+  border-bottom: 0 !important; }
+
+/* line 209, stdin */
+.sidebar .nav-second-level li a {
+  padding-left: 37px; }
+
+/* line 213, stdin */
+.sidebar .nav-third-level li a {
+  padding-left: 52px; }
+
+@media (min-width: 768px) {
+  /* line 218, stdin */
+  .sidebar {
+    z-index: 1;
+    position: absolute;
+    width: 250px;
+    margin-top: 51px; }
+  /* line 225, stdin */
+  .navbar-top-links .dropdown-messages,
+  .navbar-top-links .dropdown-tasks,
+  .navbar-top-links .dropdown-alerts {
+    margin-left: auto; } }
+
+/* line 232, stdin */
+.btn-outline {
+  color: inherit;
+  background-color: transparent;
+  transition: all .5s; }
+
+/* line 238, stdin */
+.btn-primary.btn-outline {
+  color: #428bca; }
+
+/* line 242, stdin */
+.btn-success.btn-outline {
+  color: #5cb85c; }
+
+/* line 246, stdin */
+.btn-info.btn-outline {
+  color: #5bc0de; }
+
+/* line 250, stdin */
+.btn-warning.btn-outline {
+  color: #f0ad4e; }
+
+/* line 254, stdin */
+.btn-danger.btn-outline {
+  color: #d9534f; }
+
+/* line 258, stdin */
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+  color: #fff; }
+
+/* line 266, stdin */
+.chat {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+/* line 272, stdin */
+.chat li {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #999; }
+
+/* line 278, stdin */
+.chat li.left .chat-body {
+  margin-left: 60px; }
+
+/* line 282, stdin */
+.chat li.right .chat-body {
+  margin-right: 60px; }
+
+/* line 286, stdin */
+.chat li .chat-body p {
+  margin: 0; }
+
+/* line 290, stdin */
+.panel .slidedown .glyphicon,
+.chat .glyphicon {
+  margin-right: 5px; }
+
+/* line 295, stdin */
+.chat-panel .panel-body {
+  height: 350px;
+  overflow-y: scroll; }
+
+/* line 300, stdin */
+.login-panel {
+  margin-top: 25%; }
+
+/* line 304, stdin */
+.flot-chart {
+  display: block;
+  height: 400px; }
+
+/* line 309, stdin */
+.flot-chart-content {
+  width: 100%;
+  height: 100%; }
+
+/* line 314, stdin */
+.dataTables_wrapper {
+  position: relative;
+  clear: both; }
+
+/* line 319, stdin */
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+  background: 0 0; }
+
+/* line 327, stdin */
+table.dataTable thead .sorting_asc:after {
+  content: "\f0de";
+  float: right;
+  font-family: fontawesome; }
+
+/* line 333, stdin */
+table.dataTable thead .sorting_desc:after {
+  content: "\f0dd";
+  float: right;
+  font-family: fontawesome; }
+
+/* line 339, stdin */
+table.dataTable thead .sorting:after {
+  content: "\f0dc";
+  float: right;
+  font-family: fontawesome;
+  color: rgba(50, 50, 50, 0.5); }
+
+/* line 346, stdin */
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.428571429; }
+  /* line 354, stdin */
+  .btn-circle .btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-size: 18px;
+    line-height: 1.33; }
+  /* line 362, stdin */
+  .btn-circle .btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33; }
+
+/* line 372, stdin */
+.show-grid [class^=col-] {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #ddd;
+  background-color: #eee !important; }
+
+/* line 379, stdin */
+.show-grid {
+  margin: 15px 0; }
+
+/* line 383, stdin */
+.huge {
+  font-size: 40px; }
+
+/* line 387, stdin */
+.panel-green {
+  border-color: #5cb85c; }
+  /* line 389, stdin */
+  .panel-green .panel-heading {
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c; }
+  /* line 394, stdin */
+  .panel-green a {
+    color: #5cb85c; }
+    /* line 396, stdin */
+    .panel-green a:hover {
+      color: #3d8b3d; }
+
+/* line 402, stdin */
+.panel-red {
+  border-color: #d9534f; }
+  /* line 404, stdin */
+  .panel-red .panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #d9534f; }
+  /* line 409, stdin */
+  .panel-red a {
+    color: #d9534f; }
+    /* line 411, stdin */
+    .panel-red a:hover {
+      color: #b52b27; }
+
+/* line 418, stdin */
+.panel-yellow {
+  border-color: #f0ad4e; }
+  /* line 420, stdin */
+  .panel-yellow .panel-heading {
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e; }
+  /* line 425, stdin */
+  .panel-yellow a {
+    color: #f0ad4e; }
+    /* line 427, stdin */
+    .panel-yellow a:hover {
+      color: #df8a13; }
+
+/*-----------------------------------------------------------------*/
+/* line 434, stdin */
+.prv-btn-actions {
+  display: none; }
+
+/* line 438, stdin */
+.table-hover > tbody > tr:hover .prv-btn-actions {
+  display: block; }
+
+/*************************************************/
+/* line 444, stdin */
+.select-language li {
+  cursor: pointer;
+  float: left; }
+
+/* line 449, stdin */
+.divider-vertical {
+  height: 40px;
+  margin: 0 9px;
+  border-left: 1px solid #f2f2f2;
+  border-right: 1px solid #ffffff; }

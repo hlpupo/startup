@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+{% block  stylesheets %}
+  <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}"/>
+  <link rel="stylesheet" href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}"/>
+  {# extra #}
+  <link rel="stylesheet" href="{{ asset('assets/vendor/metisMenu/dist/metisMenu.min.css') }}"/>
+  <link rel="stylesheet" href="{{ asset('assets/vendor/angular-loading-bar/build/loading-bar.min.css') }}"/>
+  <link rel="stylesheet" href="{{ asset('assets/vendor/angular-toggle-switch/angular-toggle-switch.css') }}"/>
+  <link rel="stylesheet" href="{{ asset('assets/vendor/world-flags-sprite/stylesheets/flags32.css') }}"/>
+  <link rel="stylesheet" href="{{ asset('bundles/rstaurant/css/Admin/dashboard.css') }}"/>
+
+{% endblock %}
+{% block  javascripts %}
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular/angular.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js') }}"></script>
+
+  <script src="{{ asset('assets/vendor/angular-ui-router/release/angular-ui-router.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/oclazyload/dist/ocLazyLoad.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular-loading-bar/build/loading-bar.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/metisMenu/dist/metisMenu.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/Chart.js/Chart.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/json3/lib/json3.min.js') }}"></script>
+
+  <script src="{{ asset('assets/vendor/angular-toggle-switch/angular-toggle-switch.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular-animate/angular-animate.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular-cookies/angular-cookies.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular-resource/angular-resource.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular-sanitize/angular-sanitize.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular-touch/angular-touch.js') }}"></script>
+  {#I18N#}
+  <script src="{{ asset('assets/vendor/angular-translate/angular-translate.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular-translate-storage-cookie/angular-translate-storage-cookie.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular-translate-storage-local/angular-translate-storage-local.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular-translate-handler-log/angular-translate-handler-log.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular-dynamic-locale/src/tmhDynamicLocale.js') }}"></script>
+
+  {#<script src="{{ asset('bundles/rstaurant/js/admin/service/LocaleService.js') }}"></script>#}
+  {# extra #}
+  <script src="{{ asset('bundles/rstaurant/js/admin/definer.js') }}"></script>
+  <script src="{{ asset('bundles/rstaurant/js/admin/load.js') }}"></script>
+  <script src="{{ asset('bundles/rstaurant/js/admin/sb-admin-2.js') }}"></script>
+  {#<script src="{{ asset('bundles/rstaurant/js/admin/controllers/placeController.js') }}"></script>#}
+
+
+  <script src="{{ asset('bundles/rstaurant/js/admin/app.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,53 @@
+
+<div class="table-responsive" ng-show="place === 'province'">
+  <table class="table table-hover table-striped">
+    <thead>
+    <tr>
+      <td>#</td>
+      <td>{{ "views.place.name" | translate }}</td>
+      <td>{{ "views.place.cantM" | translate }}</td>
+      <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="prov in province track by $index">
+      <td> {{ $index + 1 }}</td>
+      <td>{{ prov.name }}</td>
+      <td align="center"><span class="badge">{{ prov.municipality.length }}</span></td>
+      <td>
+        <div class="prv-btn-actions">
+          <button type="button" class="btn btn-primary btn-xs" ng-click="doClick()"><i class="fa fa-pencil"></i></button>
+          <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="table-responsive" ng-show = "place === 'municipality'">
+  <table class="table table-hover table-striped">
+    <thead>
+    <tr>
+      <td>#</td>
+      <td>{{ "views.place.municipality" | translate }}</td>
+      <td>{{ "views.place.province" | translate }}</td>
+      <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="munp in municipality track by $index">
+      <td> {{ $index + 1 }}</td>
+      <td>{{ munp.municipality }}</td>
+      <td >{{ munp.province }} </td>
+      <td>
+        <div class="prv-btn-actions">
+          <button type="button" class="btn btn-primary btn-xs" ng-click="doClick()"><i class="fa fa-pencil"></i></button>
+          <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

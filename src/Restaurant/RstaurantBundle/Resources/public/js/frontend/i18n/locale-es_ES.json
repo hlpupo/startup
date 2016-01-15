@@ -1,0 +1,11 @@
+{
+  "views.index.Home": "Casa",
+  "directives.language-select.Language": "Idioma",
+  "views.place.title": "Departamentos",
+  "views.place.name": "Nombre",
+  "views.place.province": "Provincia",
+  "views.place.municipality": "Municipio",
+  "views.place.cantM": "Cant Provincia",
+
+  "views.main.login": "Entrar"
+}

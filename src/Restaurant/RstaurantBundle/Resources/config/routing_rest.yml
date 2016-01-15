@@ -1,0 +1,11 @@
+province :
+  type: rest
+  resource: "RstaurantBundle:Province"
+
+municipality :
+  type: rest
+  resource: "RstaurantBundle:Municipality"
+
+user:
+    type : rest
+    resource: "@UserBundle/Resources/config/routing.yml"

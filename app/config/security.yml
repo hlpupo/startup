@@ -7,7 +7,7 @@ security:
         in_memory:
             memory: ~
         fos_userbundle:
-            id: fos_user.user_provider.username
+            id: fos_user.user_provider.username_email #Logging by Username or Email
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -35,9 +35,10 @@ security:
             anonymous:    true
 
     encoders:
-        FOS\UserBundle\Model\UserInterface: bcrypt
+        FOS\UserBundle\Model\UserInterface: { id: encode_password} #Esto fue un servicio que cree para que me codificara la contrase;a
 
     role_hierarchy:
+        ROLE_RESTAURANT: ROLE_USER
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: ROLE_ADMIN
 

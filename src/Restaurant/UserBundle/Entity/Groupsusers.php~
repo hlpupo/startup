@@ -1,0 +1,55 @@
+<?php
+
+namespace Restaurant\UserBundle\Entity;
+
+/**
+ * Groupsusers
+ */
+class Groupsusers
+{
+    /**
+     * @var integer
+     */
+    private $groupid;
+
+    /**
+     * @var string
+     */
+    private $groupname;
+
+
+    /**
+     * Get groupid
+     *
+     * @return integer
+     */
+    public function getGroupid()
+    {
+        return $this->groupid;
+    }
+
+    /**
+     * Set groupname
+     *
+     * @param string $groupname
+     *
+     * @return Groupsusers
+     */
+    public function setGroupname($groupname)
+    {
+        $this->groupname = $groupname;
+
+        return $this;
+    }
+
+    /**
+     * Get groupname
+     *
+     * @return string
+     */
+    public function getGroupname()
+    {
+        return $this->groupname;
+    }
+}
+

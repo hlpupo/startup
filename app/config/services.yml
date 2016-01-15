@@ -7,3 +7,12 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    encode_password:
+        class: Restaurant\UserBundle\Service\EncodePassword
+
+##aqui configuro el servicio de extenxion para twig
+    app.twig_extension:
+        class: Restaurant\RstaurantBundle\Twig\Extension\UtilExtension
+        public: false
+        tags:
+            - { name: twig.extension }

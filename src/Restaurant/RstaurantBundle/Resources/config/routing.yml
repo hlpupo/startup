@@ -1,0 +1,7 @@
+rstaurant_homepage:
+    path:     /
+    defaults: { _controller: RstaurantBundle:Default:index }
+
+admin_dashboard:
+    path:     /dashboard
+    defaults: { _controller: RstaurantBundle:Admin:index }

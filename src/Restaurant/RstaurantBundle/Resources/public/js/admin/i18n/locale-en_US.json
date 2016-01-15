@@ -1,0 +1,14 @@
+{
+  "views.index.Home": "Home",
+  "directives.language-select.Language": "Language",
+  "views.btn.ok": "OK",
+  "views.btn.cancel": "Cancel",
+
+  "views.place.title": "Manager Place",
+  "views.place.name": "Name",
+  "views.place.province": "Province",
+  "views.place.municipality": "Municipality",
+  "views.place.cantM": "Cant Province",
+  "views.place.prov.create": "Create new province"
+
+}

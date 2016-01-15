@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Users
  *
- * @ORM\Table(name="users")
+ * @ORM\Table(name="users", indexes={@ORM\Index(name="R_1", columns={"groupID"}), @ORM\Index(name="R_2", columns={"provinceId"}), @ORM\Index(name="R_3", columns={"municipalityId", "provinceId"})})
  * @ORM\Entity
  */
 class Users
@@ -22,14 +22,18 @@ class Users
     private $userid;
 
     /**
-     * @var \Groupsusers
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Groupsusers")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="groupID", referencedColumnName="groupID")
-     * })
+     * @ORM\Column(name="firstname", type="string", length=30, nullable=true)
      */
-    private $groupid;
+    private $firstname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=50, nullable=true)
+     */
+    private $lastname;
 
     /**
      * @var \Province
@@ -51,6 +55,16 @@ class Users
      * })
      */
     private $municipalityid;
+
+    /**
+     * @var \Groupsusers
+     *
+     * @ORM\ManyToOne(targetEntity="Groupsusers")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="groupID", referencedColumnName="groupID")
+     * })
+     */
+    private $groupid;
 
 
 }

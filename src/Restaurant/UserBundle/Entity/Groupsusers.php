@@ -3,6 +3,8 @@
 namespace Restaurant\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\Group as BaseGroup;
+use FOS\UserBundle\Model\Group;
 
 /**
  * Groupsusers
@@ -10,12 +12,15 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="groupsusers")
  * @ORM\Entity
  */
-class Groupsusers
+class Groupsusers extends BaseGroup
 {
+    public function __construct(){
+        parent::__construct();
+    }
     /**
      * @var integer
      *
-     * @ORM\Column(name="groupID", type="integer", nullable=false)
+     * @ORM\Column(type="integer", name="groupID")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -24,7 +29,7 @@ class Groupsusers
     /**
      * @var string
      *
-     * @ORM\Column(name="groupName", type="string", length=50, nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true, name="groupName")
      */
     private $groupname;
 

@@ -8,59 +8,57 @@ use FOS\UserBundle\Model\User as BaseUser;
 /**
  * Users
  *
- * @ORM\Table(name="users", indexes={@ORM\Index(name="R_1", columns={"groupID"}), @ORM\Index(name="R_2", columns={"provinceId"}), @ORM\Index(name="R_3", columns={"municipalityId", "provinceId"})})
+ * @ORM\Table(name="users")
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="firstnamep", type="string")
+ * @ORM\DiscriminatorMap({"users"="Restaurant\UserBundle\Entity\Users","restaurants"="Restaurant\RstaurantBundle\Entity\Restaurants"})
  */
 class Users extends BaseUser
 {
     /**
      * @var integer
      *
-     * @ORM\Column(name="userId", type="integer", nullable=false)
+     * @ORM\Column(type="integer", name="userId")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $userid;
 
     /**
-     * @var \Groupsusers
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Groupsusers")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="groupID", referencedColumnName="groupID")
-     * })
+     * @ORM\Column(type="string", length=30, nullable=true, name="firstname")
      */
-    private $groupid;
+    private $firstname;
 
     /**
-     * @var \Province
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Province")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="provinceId", referencedColumnName="provinceId")
-     * })
+     * @ORM\Column(type="string", length=50, nullable=true, name="lastname")
      */
-    private $provinceid;
+    private $lastname;
 
     /**
-     * @var \Municipality
-     *
-     * @ORM\ManyToOne(targetEntity="Municipality")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="municipalityId", referencedColumnName="municipalityId"),
-     *   @ORM\JoinColumn(name="provinceId", referencedColumnName="provinceId")
-     * })
+     * 
+     * @ORM\JoinColumn(name="municipalityId", referencedColumnName="municipalityId", unique=true)
+     * @ORM\OneToOne(targetEntity="Restaurant\UserBundle\Entity\Municipality", inversedBy="user")
      */
     private $municipalityid;
 
     /**
-     * Constructor
+     * @var \Groupsusers
+     *
+     * @ORM\ManyToOne(targetEntity="Restaurant\UserBundle\Entity\Groupsusers")
+     * @ORM\JoinColumn(name="groupID", referencedColumnName="groupID")
+     * 
      */
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
+    private $groupid;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Restaurant\RstaurantBundle\Entity\Advert", mappedBy="userId")
+     */
+    private $advert;
 
     /**
      * Get userid
@@ -70,6 +68,79 @@ class Users extends BaseUser
     public function getUserid()
     {
         return $this->userid;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     *
+     * @return Users
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set lastname
+     *
+     * @param string $lastname
+     *
+     * @return Users
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get lastname
+     *
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+
+    /**
+     * Set municipalityid
+     *
+     * @param \Restaurant\UserBundle\Entity\Municipality $municipalityid
+     *
+     * @return Users
+     */
+    public function setMunicipalityid(\Restaurant\UserBundle\Entity\Municipality $municipalityid = null)
+    {
+        $this->municipalityid = $municipalityid;
+
+        return $this;
+    }
+
+    /**
+     * Get municipalityid
+     *
+     * @return \Restaurant\UserBundle\Entity\Municipality
+     */
+    public function getMunicipalityid()
+    {
+        return $this->municipalityid;
     }
 
     /**
@@ -96,51 +167,44 @@ class Users extends BaseUser
         return $this->groupid;
     }
 
+    public function __construct(){
+        parent::__construct();
+    }
+
+
+
+
     /**
-     * Set provinceid
+     * Add advert
      *
-     * @param \Restaurant\UserBundle\Entity\Province $provinceid
+     * @param \Restaurant\RstaurantBundle\Entity\Advert $advert
      *
      * @return Users
      */
-    public function setProvinceid(\Restaurant\UserBundle\Entity\Province $provinceid = null)
+    public function addAdvert(\Restaurant\RstaurantBundle\Entity\Advert $advert)
     {
-        $this->provinceid = $provinceid;
+        $this->advert[] = $advert;
 
         return $this;
     }
 
     /**
-     * Get provinceid
+     * Remove advert
      *
-     * @return \Restaurant\UserBundle\Entity\Province
+     * @param \Restaurant\RstaurantBundle\Entity\Advert $advert
      */
-    public function getProvinceid()
+    public function removeAdvert(\Restaurant\RstaurantBundle\Entity\Advert $advert)
     {
-        return $this->provinceid;
+        $this->advert->removeElement($advert);
     }
 
     /**
-     * Set municipalityid
+     * Get advert
      *
-     * @param \Restaurant\UserBundle\Entity\Municipality $municipalityid
-     *
-     * @return Users
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function setMunicipalityid(\Restaurant\UserBundle\Entity\Municipality $municipalityid = null)
+    public function getAdvert()
     {
-        $this->municipalityid = $municipalityid;
-
-        return $this;
-    }
-
-    /**
-     * Get municipalityid
-     *
-     * @return \Restaurant\UserBundle\Entity\Municipality
-     */
-    public function getMunicipalityid()
-    {
-        return $this->municipalityid;
+        return $this->advert;
     }
 }
