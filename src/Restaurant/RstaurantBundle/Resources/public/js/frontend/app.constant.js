@@ -3,12 +3,15 @@
  */
 (function () {
   'use strict';
-  var origin, path;
+  var origin, path, router;
   origin = document.location.origin;
-  //folder = document.location.pathname.split('/')[1];
+  router = document.location.pathname.split('/')[1];
   path = origin + '/';
   angular.module('RestaurantApp')
-    .constant('PATH', path)
+    .constant('PATH', {
+        path:path,
+        router:router
+      })
     .constant('LOCALES', {
       'locales': {
         'en_US': 'English',

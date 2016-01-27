@@ -10,5 +10,10 @@ namespace Restaurant\UserBundle\Entity;
 use Doctrine\ORM\EntityRepository;
 
 class ProvinceRepository extends EntityRepository{
-
+  /**
+   * Get all province and cant municipality
+   */
+  public function getAllProvince() {
+    //$this->createQueryBuilder('p')
+  }
 }

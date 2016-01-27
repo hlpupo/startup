@@ -4,6 +4,11 @@ parameters:
 #    parameter_name: value
 
 services:
+#https://github.com/qandidate-labs/symfony-json-request-transformer
+#    kernel.event_listener.json_request_transformer:
+#    class: Qandidate\Common\Symfony\HttpKernel\EventListener\JsonRequestTransformerListener
+#    tags:
+#        - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 100 }
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
@@ -16,3 +21,16 @@ services:
         public: false
         tags:
             - { name: twig.extension }
+
+
+    restaurant.rest_registration.form.type:
+        class:     Restaurant\UserBundle\Form\UsersType
+        tags:
+            - { name:     form.type, alias:     restaurant_user_registration }
+    #Registro la clase de autenticacion como un servicio
+    restaurant.security.authentication_handler:
+        class: Restaurant\UserBundle\Handlers\AuthenticationHandler
+        public: false
+        arguments:
+            - @router
+            - @session

@@ -11,6 +11,13 @@
   "views.place.cantM": "Cant Province",
   "views.place.prov.create": "Create new province",
 
-  "views.main.login": "Sign in"
+  "views.main.login": "Sign in",
+  "views.main.login.email": "Email",
+  "views.main.login.pasw": "Password",
+  "views.main.login.remember": "Remember me",
+  "views.main.login.donthaveaccount": "Don't have an account?",
+  "views.main.login.linkcreate": "Create a free account",
+  "views.main.login.form.email.empty": "Your email is required",
+  "views.main.login.form.password.empty": "Your password is required"
 
 }

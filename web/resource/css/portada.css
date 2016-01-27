@@ -39,10 +39,8 @@ body {
   display: block;
   font-style: italic; }
 
-/* Footer Styles */
-/* line 48, stdin */
-footer {
-  background: #1e2a36; }
+
+
 
 @media (min-width: 1200px) {
   /* line 53, stdin */

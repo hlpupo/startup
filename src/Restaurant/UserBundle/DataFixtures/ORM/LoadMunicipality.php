@@ -40,7 +40,7 @@ class LoadMunicipality extends AbstractFixture implements OrderedFixtureInterfac
       foreach($val as $v) {
         $munp = new Municipality();
         $munp->setName($v);
-        $munp->setProvinceid($this->getReference('prov'.$key));
+        $munp->setProvince($this->getReference('prov'.$key));
         $manager->persist($munp);
       }
     }

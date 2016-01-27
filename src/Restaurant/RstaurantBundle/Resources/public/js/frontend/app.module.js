@@ -12,6 +12,7 @@
     'ui.bootstrap',
     'ngCookies',
     'ngAnimate',
+    'ngMessages',
     /*'angular-loading-bar', //angular-loading-bar*/
     'pascalprecht.translate',// angular-translate
     'tmh.dynamicLocale',// angular-dynamic-locale

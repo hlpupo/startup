@@ -1,0 +1,66 @@
+/*!
+ * Start Bootstrap - Modern Business HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+/* Global Styles */
+/* line 11, stdin */
+html,
+body {
+  height: 100%; }
+
+/* line 16, stdin */
+body {
+  padding-top: 50px;
+  /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */ }
+
+/* line 20, stdin */
+.img-portfolio {
+  margin-bottom: 30px; }
+
+/* line 24, stdin */
+.img-hover:hover {
+  opacity: 0.8; }
+
+/* Pricing Page Styles */
+/* line 31, stdin */
+.price {
+  display: block;
+  font-size: 50px;
+  line-height: 50px; }
+  /* line 35, stdin */
+  .price sup {
+    top: -20px;
+    left: 2px;
+    font-size: 20px; }
+
+/* line 42, stdin */
+.period {
+  display: block;
+  font-style: italic; }
+
+@media (min-width: 1200px) {
+  /* line 50, stdin */
+  .container {
+    width: 1170px; } }
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  /* line 57, stdin */
+  .customer-img,
+  .img-related {
+    margin-bottom: 30px; }
+  /* line 61, stdin */
+  .container {
+    width: 970px; } }
+
+@media (max-width: 767px) {
+  /* line 67, stdin */
+  .img-portfolio {
+    margin-bottom: 15px; }
+  /* line 71, stdin */
+  header.carousel .carousel {
+    height: 70%; }
+  /* line 74, stdin */
+  .container {
+    width: 750px; } }

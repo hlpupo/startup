@@ -11,7 +11,8 @@
  * # adminPosHeader
  */
 angular.module('sbAdminApp')
-  .directive('place', ['$place', function ($place) {
+  .directive('place', ['$place', 'Notification', '$translate', '$rootScope',
+      function ($place, Notification, $translate, $rootScope) {
     return {
       templateUrl: path + 'bundles/rstaurant/js/admin/directives/place/place.html.twig',
       restrict: 'E',
@@ -20,13 +21,14 @@ angular.module('sbAdminApp')
       },
       link: function (scope) {
 
+        $translate('notifications.prov.delete').then(function (not) {
+         scope.notDelete = not;
+        });
         $place.getAllProvince().then(function (data) {
           scope.province = data;
           scope.municipality = [];
-          //console.log(scope.province[0]);
           angular.forEach(scope.province, function (value) {
             angular.forEach(value.municipality, function (val) {
-              //console.log(val);
               scope.municipality.push({
                 'id': val.municipalityid,
                 'municipality': val.name,
@@ -34,8 +36,26 @@ angular.module('sbAdminApp')
               });
             });
           });
-
         });
+
+        scope.deleteProvince = function (id) {
+          $place.deleteProvince({'id':id}).then(function(data){
+            console.log(data);
+            Notification.success(scope.notDelete);
+            /*if(data.status) {
+              $translate('notifications.prov.delete').then(function (not) {
+                Notification.success(not);
+              });
+            } else {
+              $translate('notifications.prov.delete.fail').then(function (not) {
+                Notification.error(not);
+              });
+            }*/
+          });
+        };
+        scope.openModal = function(type){
+
+        };
 
       }
     };

@@ -7,23 +7,26 @@
   angular.module('RestaurantApp').config(config);
   /* ngInject */
   config.$inject = ['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider',
-    '$interpolateProvider', 'PATH', '$translateProvider', 'tmhDynamicLocaleProvider'];
+    '$interpolateProvider', 'PATH', '$translateProvider', 'tmhDynamicLocaleProvider', '$httpProvider'];
 
   function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $interpolateProvider, PATH,
-                  $translateProvider, tmhDynamicLocaleProvider) {
+                  $translateProvider, tmhDynamicLocaleProvider, $httpProvider) {
 
     $translateProvider.useMissingTranslationHandlerLog();
 
     $translateProvider.useStaticFilesLoader({
-      prefix: PATH + 'bundles/rstaurant/js/frontend/i18n/locale-',// path to translations files
+      prefix: PATH.path + 'bundles/rstaurant/js/frontend/i18n/locale-',// path to translations files
       suffix: '.json'// suffix, currently- extension of the translations
     });
     $translateProvider.preferredLanguage('es_ES');// is applied on first load
     $translateProvider.useLocalStorage();// saves selected language to localStorage
-    tmhDynamicLocaleProvider.localeLocationPattern(PATH + 'assets/vendor/angular-i18n/angular-locale_{{locale}}.js');
+    tmhDynamicLocaleProvider.localeLocationPattern(PATH.path + 'assets/vendor/angular-i18n/angular-locale_{{locale}}.js');
 
 
     $interpolateProvider.startSymbol('[[').endSymbol(']]');
+    //http://louisracicot.com/blog/angularjs-and-symfony2/ ver el envio por ajax
+    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
     $ocLazyLoadProvider.config({
       debug: true,
       events: true
@@ -33,8 +36,9 @@
         {
           name: 'login',
           files: [
-            PATH + 'bundles/rstaurant/js/frontend/Controllers/Login.Controller.js',
-            PATH + 'bundles/rstaurant/js/frontend/Directives/Login/Login.Directive.js'
+            PATH.path + 'bundles/rstaurant/js/frontend/Services/Login/Login.Service.js',
+            PATH.path + 'bundles/rstaurant/js/frontend/Controllers/Login.Controller.js',
+            PATH.path + 'bundles/rstaurant/js/frontend/Directives/Login/Login.Directive.js'
           ]
         }
       ]
@@ -45,7 +49,7 @@
     $stateProvider.state('login', {
       url: '/login',
       controller: 'LoginController',
-      templateUrl: PATH + 'bundles/rstaurant/view/frontend/Login/login.html.twig',
+      templateUrl: PATH.path + 'bundles/rstaurant/view/frontend/Login/login.html.twig',
       resolve: {
         loadModule: ['$ocLazyLoad', function ($ocLazyLoad) {
           return $ocLazyLoad.load('login');
@@ -55,21 +59,7 @@
     $stateProvider.state('restaurant', {
       url: '/home',
       controller: 'appController',
-      templateUrl: PATH + 'bundles/rstaurant/view/frontend/index.html.twig',
-      resolve: {
-        loadMyFiles: function ($ocLazyLoad) {
-          return $ocLazyLoad.load(
-            {
-              name: 'RestaurantApp',
-              files: [
-                PATH + 'bundles/rstaurant/js/frontend/Controllers/Restaurant.Controller.js',
-                PATH + 'bundles/rstaurant/js/frontend/Services/LocaleService.js',
-                PATH + 'bundles/rstaurant/js/frontend/Directives/selectLanguage/LanguageSelectDirective.js'
-              ]
-            }
-          );
-        }
-      }
+      templateUrl: PATH.path + 'bundles/rstaurant/view/frontend/index.html.twig'
     });
 
 

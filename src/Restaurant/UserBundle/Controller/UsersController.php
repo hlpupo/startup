@@ -15,6 +15,14 @@ use FOS\RestBundle\Request\ParamFetcher;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 //use JMS\SecurityExtraBundle\Annotation\Secure;
 use Symfony\Component\Validator\ConstraintViolationList;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\UserBundle\FOSUserEvents;
+use FOS\UserBundle\Event\FormEvent;
+use FOS\UserBundle\Event\GetResponseUserEvent;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Restaurant\UserBundle\Form;
+
 
 
 class UsersController extends FOSRestController {
@@ -48,32 +56,102 @@ class UsersController extends FOSRestController {
     return $view;
   }
 
-  /**
-   * Create a User from the submitted data.<br/>
-   *
-   * @ApiDoc(
-   *   resource = true,
-   *   description = "Creates a new user from the submitted data.",
-   *   statusCodes = {
-   *     200 = "Returned when successful",
-   *     400 = "Returned when the form has errors"
-   *   }
-   * )
-   *
-   * @param ParamFetcher $paramFetcher Paramfetcher
-   *
-   * @RequestParam(name="username", nullable=false, strict=true, description="Username.")
-   * @RequestParam(name="email", nullable=false, strict=true, description="Email.")
-   * @RequestParam(name="name", nullable=false, strict=true, description="Name.")
-   * @RequestParam(name="lastname", nullable=false, strict=true, description="Lastname.")
-   * @RequestParam(name="password", nullable=false, strict=true, description="Plain Password.")
-   *
-   * @return View
-   */
-  public function postUserAction(ParamFetcher $paramFetcher)
+
+  public function postUserAction(\Symfony\Component\HttpFoundation\Request $request)
   {
-    return $paramFetcher->get('username');
+    /*$username = $request->get('username');
+    $password = $request->get('password');
+    return $username;*/
+    //return $request->request->all(); //this funca
+    $data = json_decode($request->getContent(), true);
+    $request->request->replace($data);
+    //echo below should output 'bar'
+    return $request->request->get('_username');
+    /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
+    $formFactory = $this->container->get('fos_user.registration.form.factory');
+    /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
     $userManager = $this->container->get('fos_user.user_manager');
+    /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
+    $dispatcher = $this->container->get('event_dispatcher');
+
+    $user = $userManager->createUser();
+    $user->setEnabled(true);
+
+    $event = new GetResponseUserEvent($user, $request);
+    $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
+
+    if (null !== $event->getResponse()) {
+      return $event->getResponse();
+    }
+
+    $form = $formFactory->createForm();
+    $form->setData($user);
+
+    $jsonData = json_decode($request->getContent(), true); // "true" to get an associative array
+
+
+    if ('POST' === $request->getMethod()) {
+      $form->bind($jsonData);
+
+      if ($form->isValid()) {
+        $event = new FormEvent($form, $request);
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+
+        $userManager->updateUser($user);
+
+        $response = new Response("User created.", 201);
+
+        return $response;
+      }
+    }
+
+    $view = View::create($form, 400);
+    return $this->get('fos_rest.view_handler')->handle($view);
+  }
+
+  public function getUserAction(){
+    $usr= $this->get('security.context')->getToken()->getUser();
+    return $usr;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*    $userManager = $this->container->get('fos_user.user_manager');
 
     $user = $userManager->createUser();
     $user->setFirstname($paramFetcher->get('username'));
@@ -95,6 +173,5 @@ class UsersController extends FOSRestController {
     } else {
       $view = $this->getErrorsView($errors);
       return $view;
-    }
-  }
+    }*/
 }

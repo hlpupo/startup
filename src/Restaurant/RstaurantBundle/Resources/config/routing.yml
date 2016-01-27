@@ -5,3 +5,10 @@ rstaurant_homepage:
 admin_dashboard:
     path:     /dashboard
     defaults: { _controller: RstaurantBundle:Admin:index }
+
+restaurant_dashboard:
+    path:     /dashboard
+    defaults: { _controller: RstaurantBundle:Default:index }
+admin_form:
+    path:     /form
+    defaults: { _controller: RstaurantBundle:Example:new }

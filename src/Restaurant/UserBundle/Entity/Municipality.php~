@@ -1,0 +1,38 @@
+<?php
+
+namespace Restaurant\UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Municipality
+ *
+ * @ORM\Table(name="municipality")
+ * @ORM\Entity
+ */
+class Municipality
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer", name="municipalityId")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $municipalityid;
+
+    /**
+     * @ORM\Column(type="string", length=20, nullable=true, name="name")
+     */
+    private $name;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Restaurant\UserBundle\Entity\Users", mappedBy="municipalityid")
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Restaurant\UserBundle\Entity\Province", inversedBy="municipality")
+     * @ORM\JoinColumn(name="provinceid", referencedColumnName="provinceId")
+     */
+    private $province;
+
+}

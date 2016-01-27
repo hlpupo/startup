@@ -13,17 +13,13 @@ use Doctrine\ORM\Mapping as ORM;
 class Municipality
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(type="integer", name="municipalityId")
      * @ORM\Id
+     * @ORM\Column(type="integer", name="municipalityId")
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $municipalityid;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=20, nullable=true, name="name")
      */
     private $name;
@@ -35,35 +31,12 @@ class Municipality
 
     /**
      * @ORM\ManyToOne(targetEntity="Restaurant\UserBundle\Entity\Province", inversedBy="municipality")
-     * @ORM\JoinColumn(name="province_provinceid", referencedColumnName="provinceId")
+     * @ORM\JoinColumn(name="provinceId", referencedColumnName="provinceId")
+     * 
+     * 
      */
     private $province;
 
-    /**
-     * @var \Province
-     *
-     *
-     * 
-     * 
-     * 
-     */
-    private $provinceid;
-
-  
-
-    /**
-     * Set municipalityid
-     *
-     * @param integer $municipalityid
-     *
-     * @return Municipality
-     */
-    public function setMunicipalityid($municipalityid)
-    {
-        $this->municipalityid = $municipalityid;
-
-        return $this;
-    }
 
     /**
      * Get municipalityid
@@ -100,68 +73,23 @@ class Municipality
     }
 
     /**
-     * Set provinceid
-     *
-     * @param \Restaurant\UserBundle\Entity\Province $provinceid
-     *
-     * @return Municipality
-     */
-    public function setProvinceid(\Restaurant\UserBundle\Entity\Province $provinceid)
-    {
-        $this->provinceid = $provinceid;
-
-        return $this;
-    }
-
-    /**
-     * Get provinceid
-     *
-     * @return \Restaurant\UserBundle\Entity\Province
-     */
-    public function getProvinceid()
-    {
-        return $this->provinceid;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-
-    }
-
-
-
-
-
-    /**
-     * Add user
+     * Set user
      *
      * @param \Restaurant\UserBundle\Entity\Users $user
      *
      * @return Municipality
      */
-    public function addUser(\Restaurant\UserBundle\Entity\Users $user)
+    public function setUser(\Restaurant\UserBundle\Entity\Users $user = null)
     {
-        $this->user[] = $user;
+        $this->user = $user;
 
         return $this;
-    }
-
-    /**
-     * Remove user
-     *
-     * @param \Restaurant\UserBundle\Entity\Users $user
-     */
-    public function removeUser(\Restaurant\UserBundle\Entity\Users $user)
-    {
-        $this->user->removeElement($user);
     }
 
     /**
      * Get user
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Restaurant\UserBundle\Entity\Users
      */
     public function getUser()
     {

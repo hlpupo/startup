@@ -44,6 +44,8 @@
     "angular-translate-handler-log": "~2.8.1",
     "angular-dynamic-locale": "~0.1.29",
     "angular-i18n": "~1.4.8",
-    "world-flags-sprite": "*"
+    "world-flags-sprite": "*",
+    "angular-messages": "~1.4.8",
+    "angular-ui-notification": "~0.1.0"
   }
 }

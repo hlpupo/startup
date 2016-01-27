@@ -4,6 +4,7 @@ namespace Restaurant\UserBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
+use Restaurant\UserBundle\Entity\Groupsusers;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Restaurant\UserBundle\Entity\Users;
@@ -46,9 +47,19 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
     $manager->persist($restconfig);
     $this->addReference('conf2', $restconfig);
 
+    $groupR = new Groupsusers();
+    $this->addReference('GroupR', $groupR);
+    $groupA = new Groupsusers();
+    $this->addReference('GroupA', $groupA);
+
+    $groupU = new Groupsusers();
+    $this->addReference('GroupU', $groupU);
+
+
     $userManager = $this->container->get('fos_user.user_manager');
     //make some users
     $admin = $userManager->createUser();
+    $this->addReference('UserA', $admin);
     $admin->setFirstname('Hector');
     $admin->setLastname('Reyes');
     //$admin->setProvinceid($this->getReference('prov9'));
@@ -58,10 +69,18 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
     $admin->setPlainPassword('hlpupo');
     $admin->setEnabled(1);
     $admin->setRoles(array('ROLE_ADMIN'));
-    $userManager->updateUser($admin);
+    $admin->addGroupUser($this->getReference('GroupA'));
+
+    //user group
+    $groupA->setGroupname('ADMIN');
+    $groupA->setName('ADMIN');
+    $groupA->setRoles(array('ROLE_ADMIN'));
+    $groupA->addUserId($this->getReference('UserA'));
+    //$userManager->updateUser($admin);
 
     //User
     $user = $userManager->createUser();
+    $this->addReference('UserU', $user);
     $user->setFirstname('User Test');
     $user->setLastname('User');
     //$user->setProvinceid($this->getReference('prov9'));
@@ -71,10 +90,19 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
     $user->setPlainPassword('testuser');
     $user->setEnabled(1);
     $user->setRoles(array('ROLE_USER'));
-    $userManager->updateUser($user);
+    $user->addGroupUser($this->getReference('GroupU'));
+
+
+    $groupU->setGroupname('USER');
+    $groupU->setName('USER');
+    $groupU->setRoles(array('ROLE_USER'));
+    $groupU->addUserId($this->getReference('UserU'));
+
+    //$userManager->updateUser($user);
     //Restaurant
 
     $restT = new Restaurants();
+    $this->addReference('UserT', $restT);
     $restT->setFirstname('Restaurant Test');
     $restT->setLastname('Restaurant');
     //$restT->setProvinceid($this->getReference('prov9'));
@@ -89,8 +117,19 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
     $restT->setPhone('58152374');
     $restT->setPostalcode('83300');
     $restT->setConfig($this->getReference('conf0'));
+    $restT->addGroupUser($this->getReference('GroupR'));
+    //$restT->set
+    $groupR->setGroupname('RESTAURANT');
+    $groupR->setName('RESTAURANT');
+    $groupR->setRoles(array('ROLE_RESTAURANT'));
+    $groupR->addUserId($this->getReference('UserT'));
+
+    $manager->persist($admin);
+    $manager->persist($user);
     $manager->persist($restT);
+    $manager->persist($groupA);
+    $manager->persist($groupU);
+    $manager->persist($groupR);
     $manager->flush();
   }
-
 }

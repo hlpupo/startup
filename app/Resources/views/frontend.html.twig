@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 {% block  stylesheets %}
-  <link rel="stylesheet" href="{{ asset('resource/css/master.css') }}"/>
+
   <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}"/>
   <link rel="stylesheet" href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}"/>
   {# extra #}
@@ -29,6 +29,7 @@
   <script src="{{ asset('assets/vendor/angular-cookies/angular-cookies.js') }}"></script>
   <script src="{{ asset('assets/vendor/angular-resource/angular-resource.js') }}"></script>
   <script src="{{ asset('assets/vendor/angular-sanitize/angular-sanitize.js') }}"></script>
+  <script src="{{ asset('assets/vendor/angular-messages/angular-messages.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/angular-touch/angular-touch.js') }}"></script>
   <script src="{{ asset('assets/vendor/oclazyload/dist/ocLazyLoad.min.js') }}"></script>
   {#<script src="{{ asset('assets/vendor/angular-loading-bar/build/loading-bar.min.js') }}"></script>#}
@@ -48,5 +49,8 @@
   <script src="{{ asset('bundles/rstaurant/js/main.js') }}"></script>
   <script src="{{ asset('bundles/rstaurant/js/frontend/app.constant.js') }}"></script>
   <script src="{{ asset('bundles/rstaurant/js/frontend/app.config.js') }}"></script>
+  <script src="{{ asset('bundles/rstaurant/js/frontend/Controllers/Restaurant.Controller.js') }}"></script>
+  <script src="{{ asset('bundles/rstaurant/js/frontend/Services/LocaleService.js') }}"></script>
+  <script src="{{ asset('bundles/rstaurant/js/frontend/Directives/selectLanguage/LanguageSelectDirective.js') }}"></script>
 
 {% endblock %}

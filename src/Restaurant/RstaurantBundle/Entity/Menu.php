@@ -39,10 +39,10 @@ class Menu
      * @var \Restaurants
      *
      * @ORM\ManyToOne(targetEntity="Restaurant\RstaurantBundle\Entity\Restaurants", inversedBy="menu")
-     * @ORM\JoinColumn(name="userId", referencedColumnName="userId")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
      * 
      */
-    private $userid;
+    private $id;
 
 
 
@@ -126,5 +126,29 @@ class Menu
     public function getUserid()
     {
         return $this->userid;
+    }
+
+    /**
+     * Set id
+     *
+     * @param \Restaurant\RstaurantBundle\Entity\Restaurants $id
+     *
+     * @return Menu
+     */
+    public function setId(\Restaurant\RstaurantBundle\Entity\Restaurants $id = null)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return \Restaurant\RstaurantBundle\Entity\Restaurants
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

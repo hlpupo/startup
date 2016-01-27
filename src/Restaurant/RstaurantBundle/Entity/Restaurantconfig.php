@@ -106,7 +106,7 @@ class Restaurantconfig
      */
     public function __construct()
     {
-        $this->config = new \Doctrine\Common\Collections\ArrayCollection();
+        //$this->config = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -141,5 +141,19 @@ class Restaurantconfig
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Set config
+     *
+     * @param \Restaurant\RstaurantBundle\Entity\Restaurants $config
+     *
+     * @return Restaurantconfig
+     */
+    public function setConfig(\Restaurant\RstaurantBundle\Entity\Restaurants $config = null)
+    {
+        $this->config = $config;
+
+        return $this;
     }
 }

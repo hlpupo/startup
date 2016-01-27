@@ -11,11 +11,11 @@
           [[ "views.place.province" | translate ]]
         </div>
         <div class="panel-body">
-          <place place = 'province'></place>
+          <place place='province'></place>
         </div>
         <div class="panel-footer">
           [[txt]]
-          <button type="button" class="btn btn-primary btn-xs" ng-click="openModal()"><i class="fa fa-plus"></i> Add</button>
+          <button type="button" class="btn btn-primary btn-xs" ng-click="openModal('new')"><i class="fa fa-plus"></i> Add</button>
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
           [[ "views.place.municipality" | translate ]]
         </div>
         <div class="panel-body">
-          <place place = 'municipality'></place>
+          <place place='municipality'></place>
         </div>
         <div class="panel-footer">
           Panel Footer
@@ -39,8 +39,12 @@
     <h3 class="modal-title">[[ "views.place.prov.create" | translate ]]</h3>
   </div>
   <div class="modal-body">
-    <label for="Province">[[ "views.place.province" | translate ]]</label>
-    <input type="text" class="form-control" id="provinceText" placeholder="Province">
+    <div class="form-group has-error">
+      <label for="Province">[[ "views.place.province" | translate ]]</label>
+      <input type="text" class="form-control" id="provinceText" ng-model="formData.province.name"
+             placeholder="[[ 'views.place.province' | translate]]" required
+             ng-class="{ 'has-error': provinceEmpty }"/>
+    </div>
   </div>
   <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="ok()">[[ "views.btn.ok" | translate ]]</button>

@@ -68,10 +68,10 @@ class Advert
      * @var \Users
      *
      * @ORM\ManyToOne(targetEntity="Restaurant\UserBundle\Entity\Users", inversedBy="advert")
-     * @ORM\JoinColumn(name="userId", referencedColumnName="userId")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
      * 
      */
-    private $userId;
+    private $id;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -80,7 +80,7 @@ class Advert
      * @ORM\JoinTable(
      *     name="restaurantadvert",
      *     joinColumns={@ORM\JoinColumn(name="advertid", referencedColumnName="advertId", nullable=false)},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="restaurantid", referencedColumnName="userId")}
+     *     inverseJoinColumns={@ORM\JoinColumn(name="restaurantid", referencedColumnName="id")}
      * )
      */
     private $restaurantid;
@@ -304,5 +304,29 @@ class Advert
     public function getRestaurantid()
     {
         return $this->restaurantid;
+    }
+
+    /**
+     * Set id
+     *
+     * @param \Restaurant\UserBundle\Entity\Users $id
+     *
+     * @return Advert
+     */
+    public function setId(\Restaurant\UserBundle\Entity\Users $id = null)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return \Restaurant\UserBundle\Entity\Users
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

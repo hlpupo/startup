@@ -9,6 +9,10 @@
   "views.place.province": "Province",
   "views.place.municipality": "Municipality",
   "views.place.cantM": "Cant Province",
-  "views.place.prov.create": "Create new province"
+  "views.place.prov.create": "Create new province",
+
+  "notifications.prov.create": "New province is create",
+  "notifications.prov.delete": "New province is delete",
+  "notifications.prov.delete.fail": "It was not possible delete that province"
 
 }

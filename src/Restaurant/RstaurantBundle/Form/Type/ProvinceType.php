@@ -13,11 +13,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class ProvinceType extends AbstractType{
 
   public function configureOptions(OptionsResolver $resolver) {
-    $resolver->setDefaults(array('data_class' => 'Restaurant\UserBundle\Entity\Province'));
+    $resolver->setDefaults(array(
+      'data_class' => 'Restaurant\UserBundle\Entity\Province',
+      'csrf_protection' => false));
   }
 
   public function buildForm(FormBuilderInterface $builder, array $option) {
-    $builder->add('name','text');
+    $builder->add('name','text')->add('save', 'submit');
   }
 
   public function getName() {

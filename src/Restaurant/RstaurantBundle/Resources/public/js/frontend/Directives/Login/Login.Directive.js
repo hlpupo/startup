@@ -9,16 +9,32 @@
    */
   angular.module('RestaurantApp.Directives').directive('rLogin', login);
 
-  function login() {
+  login.$inject = ['PATH', '$Login', '$window'];
+
+  function login(PATH, $Login, $window) {
     var direct = {
       link: link,
-      template: '<p> Prueba de directive para el login [[ name ]]</p>',
+      templateUrl: PATH.path + 'bundles/rstaurant/js/frontend/Directives/Login/login.html',
       restrict: 'E'
     };
     return direct;
 
     function link(scope, element, attr) {
       scope.name = 'Hector Reyes';
+      scope.sendData = {};
+      scope.sendLogin = function () {
+        $Login.send(scope.sendData).then(function (data) {
+          if (data.success && data.ROLE === 'ADMIN') {
+            $window.location.href = PATH.path + PATH.router + '/restaurant/dashboard';
+          } else if (data.success && data.ROLE === 'RESTAURANT') {
+            $window.location.href = PATH.path + PATH.router + '/restaurant/dashboard';
+          } else if (data.success && data.ROLE === 'USER') {
+            $window.location.href = PATH.path + PATH.router + '/restaurant/dashboard';
+          } else {
+
+          }
+        });
+      };
     }
   }
 

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<skipper version="3.2.5.1268" mvc="Symfony2" orm="Doctrine2" name="Startup" uuid="fb0d6326-6682-49cf-92b8-4f427f6647a7">
+  <module name="\MainBundle" local-name="MainBundle" namespace="\" uuid="88f4fefb-6c65-496e-a3f8-b505dcd377fc">
+    <entity name="\SampleEntity" local-name="SampleEntity" namespace="\" uuid="6e0fc10a-553d-438c-9eb1-b40d352c269b">
+      <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="7c46c512-ef93-44e7-9ef2-678f0fea60f1"/>
+      <field name="name" type="string" size="255" uuid="b91ea4ea-514d-4bce-9940-7ba8734652db"/>
+    </entity>
+  </module>
+  <visual-data>
+    <entity uuid="6e0fc10a-553d-438c-9eb1-b40d352c269b" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="10" position-y="20"/>
+    <module uuid="88f4fefb-6c65-496e-a3f8-b505dcd377fc" bg-color="#E7F5FD" position-x="61" position-y="72" size-x="11" size-x2="220" size-y="22" size-y2="163"/>
+    <project uuid="fb0d6326-6682-49cf-92b8-4f427f6647a7" size-x="0" size-x2="331" size-y="0" size-y2="285"/>
+  </visual-data>
+</skipper>

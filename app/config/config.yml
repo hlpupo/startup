@@ -89,22 +89,9 @@ fos_user:
     user_class: Restaurant\UserBundle\Entity\Users
     group:
         group_class: Restaurant\UserBundle\Entity\Groupsusers #Using Groups With FOSUserBundle
-
-#fos_rest:
-#    param_fetcher_listener: true
-#    body_listener: true
-        #array_normalizer: fos_rest.normalizer.camel_keys
-#    format_listener: true
-        #enabled: true
-        #rules:
-            #- { path: '^/api', priorities: ['json'], fallback_format: 'json' }
-#    view:
-#        view_response_listener: 'force'
-#        formats:
-#            xml:  true
-#            json: true
-
-
+    registration:
+        form:
+            type: restaurant_user_registration
 #FosRestBundle Configuration
 fos_rest:
     exception:
@@ -134,8 +121,8 @@ fos_rest:
     disable_csrf_role: ROLE_API
 
     routing_loader:
-        default_format: json
-        include_format: false
+        default_format: json  #All responses should be JSON formated
+        include_format: false #We do not include format in request, so that all responses  will eventually be JSON formated
 
 sensio_framework_extra:
     view:    { annotations: false }

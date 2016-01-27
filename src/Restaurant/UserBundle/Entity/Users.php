@@ -2,7 +2,9 @@
 
 namespace Restaurant\UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\GroupInterface;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
@@ -19,11 +21,19 @@ class Users extends BaseUser
     /**
      * @var integer
      *
-     * @ORM\Column(type="integer", name="userId")
+     * @ORM\Column(type="integer", name="id")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $userid;
+    protected $id;
+
+    /**
+     * 
+     * 
+     * 
+     */
+    private $userId;
+
 
     /**
      * @var string
@@ -47,27 +57,55 @@ class Users extends BaseUser
     private $municipalityid;
 
     /**
-     * @var \Groupsusers
-     *
-     * @ORM\ManyToOne(targetEntity="Restaurant\UserBundle\Entity\Groupsusers")
-     * @ORM\JoinColumn(name="groupID", referencedColumnName="groupID")
-     * 
+     * @ORM\ManyToMany(targetEntity="Restaurant\UserBundle\Entity\Groupsusers", inversedBy="user_id")
+     * @ORM\JoinTable(name="fos_user_user_group",
+     *          joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *          inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+     *     )
      */
-    private $groupid;
+    protected $groups;
 
     /**
-     * @ORM\OneToMany(targetEntity="Restaurant\RstaurantBundle\Entity\Advert", mappedBy="userId")
+     * @ORM\OneToMany(targetEntity="Restaurant\RstaurantBundle\Entity\Advert", mappedBy="id")
      */
     private $advert;
 
-    /**
+  public function __construct(){
+    parent::__construct();
+    $this->groups =  new ArrayCollection();
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getGroups() {
+    return $this->groups;
+  }
+
+  /**
+   * @param mixed $groups
+   */
+  public function setGroups(\Restaurant\UserBundle\Entity\Groupsusers $groups) {
+    $this->groups = $groups;
+  }
+
+  public function addGroupUser(\Restaurant\UserBundle\Entity\Groupsusers $group) {
+    $this->groups[] = $group;
+    $group->addUserId($this);
+
+
+    return $this;
+  }
+
+
+  /**
      * Get userid
      *
      * @return integer
      */
-    public function getUserid()
+    public function getid()
     {
-        return $this->userid;
+        return $this->id;
     }
 
     /**
@@ -143,33 +181,8 @@ class Users extends BaseUser
         return $this->municipalityid;
     }
 
-    /**
-     * Set groupid
-     *
-     * @param \Restaurant\UserBundle\Entity\Groupsusers $groupid
-     *
-     * @return Users
-     */
-    public function setGroupid(\Restaurant\UserBundle\Entity\Groupsusers $groupid = null)
-    {
-        $this->groupid = $groupid;
 
-        return $this;
-    }
 
-    /**
-     * Get groupid
-     *
-     * @return \Restaurant\UserBundle\Entity\Groupsusers
-     */
-    public function getGroupid()
-    {
-        return $this->groupid;
-    }
-
-    public function __construct(){
-        parent::__construct();
-    }
 
 
 

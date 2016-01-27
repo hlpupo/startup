@@ -2,6 +2,7 @@
 
 namespace Restaurant\UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\Group as BaseGroup;
 use FOS\UserBundle\Model\Group;
@@ -14,17 +15,15 @@ use FOS\UserBundle\Model\Group;
  */
 class Groupsusers extends BaseGroup
 {
-    public function __construct(){
-        parent::__construct();
-    }
+
     /**
      * @var integer
      *
-     * @ORM\Column(type="integer", name="groupID")
+     * @ORM\Column(type="integer", name="id")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $groupid;
+    protected $id;
 
     /**
      * @var string
@@ -33,17 +32,19 @@ class Groupsusers extends BaseGroup
      */
     private $groupname;
 
-
-
     /**
-     * Get groupid
+     * @var \Doctrine\Common\Collections\Collection
      *
-     * @return integer
+     * @ORM\ManyToMany(targetEntity="Restaurant\UserBundle\Entity\Users", mappedBy="groups")
+     *
      */
-    public function getGroupid()
-    {
-        return $this->groupid;
+    private $user_id;
+
+    public function __construct(){
+        //parent::__construct();
+        $this->user_id = new ArrayCollection();
     }
+
 
     /**
      * Set groupname
@@ -67,5 +68,39 @@ class Groupsusers extends BaseGroup
     public function getGroupname()
     {
         return $this->groupname;
+    }
+
+    /**
+     * Add userId
+     *
+     * @param \Restaurant\UserBundle\Entity\Users $userId
+     *
+     * @return Groupsusers
+     */
+    public function addUserId(\Restaurant\UserBundle\Entity\Users $userId)
+    {
+        $this->user_id[] = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Remove userId
+     *
+     * @param \Restaurant\UserBundle\Entity\Users $userId
+     */
+    public function removeUserId(\Restaurant\UserBundle\Entity\Users $userId)
+    {
+        $this->user_id->removeElement($userId);
+    }
+
+    /**
+     * Get userId
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
     }
 }

@@ -15,7 +15,7 @@
   function ngTranslateLanguageSelect(LocaleService, PATH) {
     return {
       restrict: 'E',
-      templateUrl: PATH + 'bundles/rstaurant/js/frontend/Directives/selectLanguage/language.html.twig',
+      templateUrl: PATH.path + 'bundles/rstaurant/js/frontend/Directives/selectLanguage/language.html.twig',
       controller: function ($scope) {
         $scope.currentLocaleDisplayName = LocaleService.getLocaleDisplayName();
         $scope.localesDisplayNames = LocaleService.getLocalesDisplayNames();

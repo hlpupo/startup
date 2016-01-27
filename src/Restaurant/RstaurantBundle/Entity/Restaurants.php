@@ -69,7 +69,7 @@ class Restaurants extends Users
     private $configid;
 
     /**
-     * @ORM\OneToMany(targetEntity="Restaurant\RstaurantBundle\Entity\Menu", mappedBy="userid")
+     * @ORM\OneToMany(targetEntity="Restaurant\RstaurantBundle\Entity\Menu", mappedBy="id")
      */
     private $menu;
 
