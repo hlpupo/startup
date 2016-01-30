@@ -49,8 +49,46 @@
   <script src="{{ asset('bundles/rstaurant/js/main.js') }}"></script>
   <script src="{{ asset('bundles/rstaurant/js/frontend/app.constant.js') }}"></script>
   <script src="{{ asset('bundles/rstaurant/js/frontend/app.config.js') }}"></script>
+  <script src="{{ asset('bundles/rstaurant/js/frontend/Services/User/Users.Service.js') }}"></script>
+
   <script src="{{ asset('bundles/rstaurant/js/frontend/Controllers/Restaurant.Controller.js') }}"></script>
   <script src="{{ asset('bundles/rstaurant/js/frontend/Services/LocaleService.js') }}"></script>
   <script src="{{ asset('bundles/rstaurant/js/frontend/Directives/selectLanguage/LanguageSelectDirective.js') }}"></script>
 
+
+{% endblock %}
+{% block footer %}
+  <footer>
+    <div class="container">
+      <div class="footer_para">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.  It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      </div>
+    </div>
+    <section class="footer_social">
+      <div class="container">
+        <div class="f_social_icons">
+          <p>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-google-plus"></i></a>
+            <a href="#"><i class="fa fa-envelope"></i></a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <div class="f_menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contacts</a></li>
+        </ul>
+        <p>Copyright 2016 - <strong>Restaurant</strong>, All Right Reseerved.</p>
+      </div>
+    </div>
+  </footer>
 {% endblock %}

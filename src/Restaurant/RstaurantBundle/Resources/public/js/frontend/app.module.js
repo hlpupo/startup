@@ -18,6 +18,7 @@
     'tmh.dynamicLocale',// angular-dynamic-locale
     'RestaurantApp.Controllers',
     'RestaurantApp.Directives',
-    'RestaurantApp.Services'
+    'RestaurantApp.Services',
+    'ngSanitize'
   ]);
 })();

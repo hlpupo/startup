@@ -1,6 +1,7 @@
 rstaurant:
     resource: "@RstaurantBundle/Resources/config/routing.yml"
-    prefix:   /restaurant/
+    #prefix:   /restaurant/
+    prefix:   /
 
 
 

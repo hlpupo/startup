@@ -18,6 +18,9 @@
   "views.main.login.donthaveaccount": "Don't have an account?",
   "views.main.login.linkcreate": "Create a free account",
   "views.main.login.form.email.empty": "Your email is required",
-  "views.main.login.form.password.empty": "Your password is required"
+  "views.main.login.form.password.empty": "Your password is required",
+  "views.restaurant.profile": "Profile",
+  "views.restaurant.sheet": "Technical Sheet",
+  "views.restaurant.menu": "Manager Menu"
 
 }

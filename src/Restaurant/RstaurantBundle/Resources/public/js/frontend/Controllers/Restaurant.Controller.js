@@ -4,7 +4,8 @@
 (function() {
   'use strict';
   angular.module('RestaurantApp.Controllers').controller('appController', appController);
-  function appController(){
+  appController.$inject = ['PATH', '$http', '$Users'];
+  function appController(PATH, $http, $Users){
 
   }
 })();

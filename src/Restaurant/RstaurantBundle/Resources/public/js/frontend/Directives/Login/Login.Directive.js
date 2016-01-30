@@ -25,11 +25,11 @@
       scope.sendLogin = function () {
         $Login.send(scope.sendData).then(function (data) {
           if (data.success && data.ROLE === 'ADMIN') {
-            $window.location.href = PATH.path + PATH.router + '/restaurant/dashboard';
+            $window.location.href = PATH.path + PATH.router + '/dashboard';
           } else if (data.success && data.ROLE === 'RESTAURANT') {
-            $window.location.href = PATH.path + PATH.router + '/restaurant/dashboard';
+            $window.location.href = PATH.path + PATH.router + '/restaurant';
           } else if (data.success && data.ROLE === 'USER') {
-            $window.location.href = PATH.path + PATH.router + '/restaurant/dashboard';
+            $window.location.href = PATH.path + PATH.router + '/user';
           } else {
 
           }

@@ -7,60 +7,61 @@
 /* line 11, stdin */
 html,
 body {
-  height: 100%; }
-
-/* line 16, stdin */
-body {
+  height: 100%;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: #767676;
+  background-color: #f3f3f3;
   padding-top: 50px;
   /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */ }
 
-/* line 20, stdin */
+/* line 21, stdin */
 .img-portfolio {
   margin-bottom: 30px; }
 
-/* line 24, stdin */
+/* line 25, stdin */
 .img-hover:hover {
   opacity: 0.8; }
 
 /* Pricing Page Styles */
-/* line 31, stdin */
+/* line 32, stdin */
 .price {
   display: block;
   font-size: 50px;
   line-height: 50px; }
-  /* line 35, stdin */
+  /* line 36, stdin */
   .price sup {
     top: -20px;
     left: 2px;
     font-size: 20px; }
 
-/* line 42, stdin */
+/* line 43, stdin */
 .period {
   display: block;
   font-style: italic; }
 
 @media (min-width: 1200px) {
-  /* line 50, stdin */
+  /* line 51, stdin */
   .container {
     width: 1170px; } }
 
 /* Responsive Styles */
 @media (max-width: 991px) {
-  /* line 57, stdin */
+  /* line 58, stdin */
   .customer-img,
   .img-related {
     margin-bottom: 30px; }
-  /* line 61, stdin */
+  /* line 62, stdin */
   .container {
     width: 970px; } }
 
 @media (max-width: 767px) {
-  /* line 67, stdin */
+  /* line 68, stdin */
   .img-portfolio {
     margin-bottom: 15px; }
-  /* line 71, stdin */
+  /* line 72, stdin */
   header.carousel .carousel {
     height: 70%; }
-  /* line 74, stdin */
+  /* line 75, stdin */
   .container {
     width: 750px; } }

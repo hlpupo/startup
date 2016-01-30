@@ -1,6 +1,7 @@
 @import "../variables";
 @import "portada";
 @import "login/login";
+@import "profile";
 /*************************************************/
 .select-language {
   li {
@@ -14,7 +15,68 @@
   height: 40px;
   margin: 0 9px;
 }
+/*****Menu*************************/
+.navbar-inverse {
+  background-color: $headerMenu;
+  border-bottom: 2px solid #0BAFA0;
+}
+.navbar-collapse ul li a:after,
+.navbar-collapse ul li,
+.navbar-collapse ul li a:hover::after,
+/*.navbar-collapse ul li a:hover,*/
+.navbar-collapse ul li li a:focus {
+  background: none;
+  opacity: 1;
+  color: #0BAFA0;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  transform: translateY(0px);
+}
+.navbar-collapse ul li a {
+  text-transform: uppercase;
+  padding: 5px 0;
+  color: #0BAFA0 !important;
+  font-weight: 300;
+  position: relative;
+}
+.navbar-collapse ul li {
+  margin: 10px 0 0 24px;
+}
+.navbar-collapse li a:hover::after {
+  border-bottom: 2px solid #0BAFA0;
+  content: '';
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  -webkit-transform: translateY(10px);
+  -moz-transform: translateY(10px);
+  transform: translateY(10px);
+}
+.navbar-inverse .navbar-nav>.open>a,
+.navbar-inverse .navbar-nav>.open>a:focus,
+.navbar-inverse .navbar-nav>.open>a:hover {
+  background-color: $headerMenu;
+}
 
+/********User Profile Pic Default *****************/
+.picture_profile {
+  background: url("../../images/profilepic/default/flat-round-avatar-icons-faces-people-icons-vector-2797472.jpg");
+
+}
+.default1 {
+  background-position: -148px -40px;
+}
+.default2 {
+  background-position: -31px -36px;
+}
+.default3 {
+  background-position: -31px -155px;
+}
 /***Footer**************************/
 
 .container {

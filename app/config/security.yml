@@ -36,7 +36,8 @@ security:
                 username_parameter: login
                 password_parameter: password
                 require_previous_session: false #http://stackoverflow.com/questions/26694212/symfony-2-your-session-has-timed-out-or-you-have-disabled-cookies
-            logout:       true
+            logout:
+                success_handler: restaurant.security.logout_handler #http://www.reecefowell.com/2011/10/26/redirecting-on-loginlogout-in-symfony2-using-loginhandlers/
             anonymous:    true
 
     encoders:
@@ -53,4 +54,6 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         #- { path: ^/restaurant/dashboard, role: ROLE_ADMIN }
-        - { path: ^/restaurant/dashboard, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/dashboard, role: ROLE_ADMIN }
+        - { path: ^/restaurant, role: ROLE_RESTAURANT }
+        - { path: ^/user, role: ROLE_USER }

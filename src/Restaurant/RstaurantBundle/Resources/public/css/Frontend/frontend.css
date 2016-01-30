@@ -7,61 +7,62 @@
 /* line 11, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
 html,
 body {
-  height: 100%; }
-
-/* line 16, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
-body {
+  height: 100%;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: #767676;
+  background-color: #f3f3f3;
   padding-top: 50px;
   /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */ }
 
-/* line 20, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
+/* line 21, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
 .img-portfolio {
   margin-bottom: 30px; }
 
-/* line 24, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
+/* line 25, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
 .img-hover:hover {
   opacity: 0.8; }
 
 /* Pricing Page Styles */
-/* line 31, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
+/* line 32, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
 .price {
   display: block;
   font-size: 50px;
   line-height: 50px; }
-  /* line 35, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
+  /* line 36, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
   .price sup {
     top: -20px;
     left: 2px;
     font-size: 20px; }
 
-/* line 42, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
+/* line 43, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
 .period {
   display: block;
   font-style: italic; }
 
 @media (min-width: 1200px) {
-  /* line 50, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
+  /* line 51, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
   .container {
     width: 1170px; } }
 
 /* Responsive Styles */
 @media (max-width: 991px) {
-  /* line 57, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
+  /* line 58, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
   .customer-img,
   .img-related {
     margin-bottom: 30px; }
-  /* line 61, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
+  /* line 62, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
   .container {
     width: 970px; } }
 
 @media (max-width: 767px) {
-  /* line 67, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
+  /* line 68, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
   .img-portfolio {
     margin-bottom: 15px; }
-  /* line 71, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
+  /* line 72, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
   header.carousel .carousel {
     height: 70%; }
-  /* line 74, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
+  /* line 75, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/portada.scss */
   .container {
     width: 750px; } }
 
@@ -86,34 +87,335 @@ body {
 .login-head {
   margin-top: 20px; }
 
+/* line 3, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.panel-profile {
+  border: none; }
+  /* line 5, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .panel-profile .list-justified-container {
+    padding: 15px 0; }
+  /* line 9, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .panel-profile ul.list-justified {
+    display: table;
+    width: 100%;
+    list-style: none;
+    padding: 0; }
+  /* line 16, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .panel-profile ul.list-justified > li {
+    float: none;
+    display: table-cell;
+    padding: 10px;
+    width: 1%;
+    border-right: 1px solid #eee; }
+    /* line 22, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+    .panel-profile ul.list-justified > li p {
+      margin: 0; }
+
+/* line 27, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 0;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
+  /* line 34, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .panel .panel-heading {
+    text-transform: uppercase; }
+
+/* line 39, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.bg-info {
+  background-color: #66B5D7;
+  color: #fff; }
+
+/* line 43, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: -1;
+  border-top-left-radius: -1; }
+
+/* line 50, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.img80_80 {
+  width: 80px;
+  height: 80px; }
+
+/* line 54, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.img-circle {
+  border-radius: 50%; }
+
+/* line 57, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.size-h1 {
+  font-size: 36px; }
+
+/* line 60, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.size-h2 {
+  font-size: 30px; }
+
+/* line 63, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.size-h3 {
+  font-size: 24px; }
+
+/* line 67, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.row {
+  margin-left: -15px;
+  margin-right: -15px; }
+
+/* line 72, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.panel-box {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: none; }
+  /* line 79, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .panel-box .panel-top {
+    padding: 30px 20px;
+    -moz-border-radius-topleft: 0;
+    -webkit-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+    -moz-border-radius-topright: 0;
+    -webkit-border-top-right-radius: 0;
+    border-top-right-radius: 0; }
+  /* line 88, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .panel-box .list-justified-container {
+    padding: 15px 0; }
+  /* line 91, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .panel-box .panel-top {
+    display: block; }
+  /* line 94, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .panel-box .panel-bottom {
+    display: block; }
+  /* line 97, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .panel-box ul.list-justified {
+    display: table;
+    width: 100%;
+    list-style: none;
+    padding: 0; }
+  /* line 103, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .panel-box ul.list-justified > li {
+    float: none;
+    display: table-cell;
+    padding: 10px;
+    width: 1%;
+    border-right: 1px solid #eee; }
+    /* line 109, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+    .panel-box ul.list-justified > li p {
+      margin: 0; }
+
+/* line 115, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.bg-facebook {
+  background-color: #335397;
+  color: #fff; }
+
+/* line 120, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.bg-twitter {
+  background-color: #00c7f7;
+  color: #fff; }
+
+/* line 125, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.divider {
+  display: block;
+  height: 10px; }
+
+/* line 130, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.text-muted {
+  color: #777; }
+
+/* line 134, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.mini-box {
+  min-height: 105px;
+  padding: 20px; }
+  /* line 137, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .mini-box .box-icon {
+    display: block;
+    float: left;
+    margin: 0 15px 10px 0;
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 35px; }
+  /* line 148, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .mini-box .box-info p {
+    margin: 0; }
+
+/* line 153, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.bg-danger {
+  background-color: #E87352;
+  color: #fff; }
+
+/* line 158, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.bg-warning {
+  background-color: #EEC95A;
+  color: #fff; }
+
+/* line 162, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.row:after {
+  clear: both; }
+
+/* line 165, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.row:before, .row:after {
+  content: " ";
+  display: table; }
+
+/* line 170, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.panel-default > .panel-heading {
+  color: #767676;
+  background-color: #f6f6f6;
+  border-color: #e9e9e9; }
+
+/* line 175, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: -1;
+  border-top-left-radius: -1; }
+
+/* line 182, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.panel-body {
+  padding: 15px; }
+
+/* line 185, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.media:first-child {
+  margin-top: 0; }
+
+/* line 188, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.media {
+  margin-top: 15px; }
+
+/* line 191, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.media-left, .media-right, .media-body {
+  display: table-cell;
+  vertical-align: top; }
+
+/* line 195, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.list-unstyled {
+  padding-left: 0;
+  list-style: none; }
+
+/* line 199, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+.list-info li {
+  padding: 10px;
+  border-bottom: 1px solid #eee; }
+  /* line 202, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .list-info li .icon {
+    margin-right: 10px;
+    color: #31C0BE; }
+  /* line 206, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+  .list-info li label {
+    width: 100px; }
+
+/* line 211, C:/xampp/htdocs/personalWork/startup/src/Restaurant/RstaurantBundle/Resources/public/sass/Frontend/profile.scss */
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold; }
+
+/*
+.center-block-profile {
+  @include center-block;
+  width: 0%;
+}*/
 /*************************************************/
-/* line 6, stdin */
+/* line 7, stdin */
 .select-language li {
   cursor: pointer;
   float: left; }
 
-/* line 11, stdin */
+/* line 12, stdin */
 .divider-vertical {
   border-left: 1px solid #f2f2f2;
   border-right: 1px solid #ffffff;
   height: 40px;
   margin: 0 9px; }
 
+/*****Menu*************************/
+/* line 19, stdin */
+.navbar-inverse {
+  background-color: #ffffff;
+  border-bottom: 2px solid #0BAFA0; }
+
+/* line 23, stdin */
+.navbar-collapse ul li a:after,
+.navbar-collapse ul li,
+.navbar-collapse ul li a:hover::after,
+.navbar-collapse ul li li a:focus {
+  background: none;
+  opacity: 1;
+  color: #0BAFA0;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  transform: translateY(0px); }
+
+/* line 35, stdin */
+.navbar-collapse ul li a {
+  text-transform: uppercase;
+  padding: 5px 0;
+  color: #0BAFA0 !important;
+  font-weight: 300;
+  position: relative; }
+
+/* line 42, stdin */
+.navbar-collapse ul li {
+  margin: 10px 0 0 24px; }
+
+/* line 45, stdin */
+.navbar-collapse li a:hover::after {
+  border-bottom: 2px solid #0BAFA0;
+  content: '';
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  -webkit-transform: translateY(10px);
+  -moz-transform: translateY(10px);
+  transform: translateY(10px); }
+
+/* line 60, stdin */
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-nav > .open > a:hover {
+  background-color: #ffffff; }
+
+/********User Profile Pic Default *****************/
+/* line 67, stdin */
+.picture_profile {
+  background: url("../../images/profilepic/default/flat-round-avatar-icons-faces-people-icons-vector-2797472.jpg"); }
+
+/* line 71, stdin */
+.default1 {
+  background-position: -148px -40px; }
+
+/* line 74, stdin */
+.default2 {
+  background-position: -31px -36px; }
+
+/* line 77, stdin */
+.default3 {
+  background-position: -31px -155px; }
+
 /***Footer**************************/
-/* line 20, stdin */
+/* line 82, stdin */
 .container {
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px; }
 
-/* line 27, stdin */
+/* line 89, stdin */
 section.footer_social {
   background: #151213;
   float: left;
   padding: 20px 0;
   width: 100%; }
-  /* line 32, stdin */
+  /* line 94, stdin */
   section.footer_social .f_social_icons i {
     color: #4c4c4c;
     font-size: 40px;
@@ -123,32 +425,32 @@ section.footer_social {
     -ms-transition: all 0.6s ease 0s;
     -o-transition: all 0.6s ease 0s;
     -webkit-transition: all 0.6s ease 0s; }
-    /* line 41, stdin */
+    /* line 103, stdin */
     section.footer_social .f_social_icons i:hover {
       color: #fff; }
 
-/* line 47, stdin */
+/* line 109, stdin */
 footer {
   background: linear-gradient(to bottom, #231F20 0%, #1B1819 100%);
   text-align: center; }
-  /* line 50, stdin */
+  /* line 112, stdin */
   footer .f_menu {
     float: left;
     width: 100%; }
-    /* line 53, stdin */
+    /* line 115, stdin */
     footer .f_menu ul {
       display: block;
       list-style: none;
       margin-top: 30px; }
-      /* line 57, stdin */
+      /* line 119, stdin */
       footer .f_menu ul li {
         display: inline-block; }
-        /* line 59, stdin */
+        /* line 121, stdin */
         footer .f_menu ul li:after {
           content: "/";
           color: #ffffff;
           margin: 0 35px; }
-        /* line 64, stdin */
+        /* line 126, stdin */
         footer .f_menu ul li a {
           color: #ffffff;
           font-size: 18px;

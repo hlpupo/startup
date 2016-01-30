@@ -7,8 +7,12 @@ admin_dashboard:
     defaults: { _controller: RstaurantBundle:Admin:index }
 
 restaurant_dashboard:
-    path:     /dashboard
+    path:     /restaurant
+    defaults: { _controller: RstaurantBundle:Restaurant:index }
+user_dashboard:
+    path:     /user
     defaults: { _controller: RstaurantBundle:Default:index }
+
 admin_form:
     path:     /form
     defaults: { _controller: RstaurantBundle:Example:new }

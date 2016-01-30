@@ -112,6 +112,7 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
     $restT->setPlainPassword('testrestaurant');
     $restT->setEnabled(1);
     $restT->setRoles(array('ROLE_RESTAURANT'));
+    $restT->setProfilePicture('');
     $restT->setAddress('');
     $restT->setCif('');
     $restT->setPhone('58152374');

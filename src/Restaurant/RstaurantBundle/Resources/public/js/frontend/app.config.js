@@ -7,7 +7,8 @@
   angular.module('RestaurantApp').config(config);
   /* ngInject */
   config.$inject = ['$stateProvider', '$urlRouterProvider', '$ocLazyLoadProvider',
-    '$interpolateProvider', 'PATH', '$translateProvider', 'tmhDynamicLocaleProvider', '$httpProvider'];
+    '$interpolateProvider', 'PATH', '$translateProvider', 'tmhDynamicLocaleProvider', '$httpProvider'
+    ];
 
   function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, $interpolateProvider, PATH,
                   $translateProvider, tmhDynamicLocaleProvider, $httpProvider) {
@@ -56,13 +57,62 @@
         }]
       }
     });
+//<script src="{{ asset('bundles/rstaurant/js/frontend/Services/Logout/Logout.Service.js') }}"></script>
+    $stateProvider.state('logout', {
+      url: '/logout',
+      controller: function($Logout, $window){
+        $Logout.logout().then(function(data){
+
+          if(data.status === true) {
+            $window.location.href = PATH.path + PATH.router + '/';
+          }
+        });
+      },
+      resolve: {
+        loadMyDirectives: function ($ocLazyLoad) {
+          return $ocLazyLoad.load(
+              {
+                name: 'sbAdminApp',
+                files: [
+                  PATH.path + 'bundles/rstaurant/js/frontend/Services/Logout/Logout.Service.js'
+                ]
+              });
+        }
+      }
+    });
+
+    $stateProvider.state('profile', {
+      url: '/profile',
+      controller: 'appController',
+      template: '<profile></profile>',
+      resolve: {
+        loadMyDirectives: function ($ocLazyLoad) {
+          return $ocLazyLoad.load(
+            {
+              name: 'sbAdminApp',
+              files: [
+                PATH.path + 'bundles/rstaurant/js/frontend/Directives/Profile/profile.Directive.js'
+              ]
+            });
+        }
+      }
+    });
     $stateProvider.state('restaurant', {
       url: '/home',
       controller: 'appController',
-      templateUrl: PATH.path + 'bundles/rstaurant/view/frontend/index.html.twig'
+      templateUrl: PATH.path + 'bundles/rstaurant/view/frontend/index.html.twig',
+      resolve: {
+        loadMyDirectives: function ($ocLazyLoad) {
+          return $ocLazyLoad.load(
+              {
+                name: 'sbAdminApp',
+                files: [
+                  PATH.path + 'bundles/rstaurant/js/frontend/Services/User/Users.Service.js'
+                ]
+              });
+        }
+      }
     });
-
-
 
 
   }

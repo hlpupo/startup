@@ -110,9 +110,7 @@ class UsersController extends FOSRestController {
   }
 
   public function getUserAction(){
-    $usr= $this->get('security.context')->getToken()->getUser();
-    return $usr;
-
+    return $this->get('security.context')->getToken()->getUser();
   }
 
 

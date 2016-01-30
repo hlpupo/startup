@@ -7,9 +7,10 @@
  */
 
 namespace Restaurant\RstaurantBundle\Controller;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class AdminController extends Controller{
+class AdminController extends Controller {
 
   public function indexAction() {
     return $this->render('RstaurantBundle:Admin:dashboard.html.twig');

@@ -34,3 +34,6 @@ services:
         arguments:
             - @router
             - @session
+    restaurant.security.logout_handler:
+            class: Restaurant\UserBundle\Handlers\LogoutHandler
+            public: false
