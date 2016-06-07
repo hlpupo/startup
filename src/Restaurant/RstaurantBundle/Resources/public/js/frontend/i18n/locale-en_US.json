@@ -19,8 +19,19 @@
   "views.main.login.linkcreate": "Create a free account",
   "views.main.login.form.email.empty": "Your email is required",
   "views.main.login.form.password.empty": "Your password is required",
+
   "views.restaurant.profile": "Profile",
   "views.restaurant.sheet": "Technical Sheet",
-  "views.restaurant.menu": "Manager Menu"
+  "views.restaurant.menu": "Manager Menu",
+
+  "views.main.register.username": "User name",
+  "views.main.register.name": "Name",
+  "views.main.register.password": "Password",
+  "views.main.register.confirmPassword": "Confirm Password",
+  "views.main.register.phone": "Phone Number",
+  "views.main.register.code": "Code",
+  "views.main.register.cif": "CIF"
+
+
 
 }

@@ -40,28 +40,32 @@ body {
   display: block;
   font-style: italic; }
 
+/* line 48, stdin */
+.container-all {
+  height: 100%; }
+
 @media (min-width: 1200px) {
-  /* line 51, stdin */
+  /* line 55, stdin */
   .container {
     width: 1170px; } }
 
 /* Responsive Styles */
 @media (max-width: 991px) {
-  /* line 58, stdin */
+  /* line 62, stdin */
   .customer-img,
   .img-related {
     margin-bottom: 30px; }
-  /* line 62, stdin */
+  /* line 66, stdin */
   .container {
     width: 970px; } }
 
 @media (max-width: 767px) {
-  /* line 68, stdin */
+  /* line 72, stdin */
   .img-portfolio {
     margin-bottom: 15px; }
-  /* line 72, stdin */
+  /* line 76, stdin */
   header.carousel .carousel {
     height: 70%; }
-  /* line 75, stdin */
+  /* line 79, stdin */
   .container {
     width: 750px; } }

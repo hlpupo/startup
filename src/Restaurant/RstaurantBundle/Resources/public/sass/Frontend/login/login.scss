@@ -16,3 +16,18 @@
 .login-head {
   margin-top: 20px;
 }
+.register{
+  margin-bottom: 7%;
+}
+.panel {
+
+  transition: padding 0.5s;
+  -moz-transition: padding 0.5s; /* Firefox 4 */
+  -webkit-transition: padding 0.5s; /* Safari and Chrome */
+  -o-transition: padding 0.5s; /* Opera */
+  -ms-transition:padding 0.5s; /* IE9 (maybe) */
+  &:hover {
+    padding:10px;
+  }
+}
+

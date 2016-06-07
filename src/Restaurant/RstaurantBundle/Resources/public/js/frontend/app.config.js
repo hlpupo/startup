@@ -80,7 +80,25 @@
         }
       }
     });
-
+    $stateProvider.state('register', {
+      url: '/register',
+      template: '<register></register>',
+      controller: 'appController',
+      resolve: {
+        loadMyDirectives: function ($ocLazyLoad) {
+          return $ocLazyLoad.load(
+              {
+                name: 'RestaurantApp',
+                files: [
+                  PATH.path + 'bundles/rstaurant/js/frontend/Directives/Register/Register.Directive.js',
+                  PATH.path + 'bundles/rstaurant/js/frontend/Directives/Register/CheckPassword.Directive.js',
+                  PATH.path + 'bundles/rstaurant/js/frontend/Services/Locality/Locality.Service.js',
+                  PATH.path + 'bundles/rstaurant/js/frontend/Services/Register/Register.Service.js'
+                ]
+              });
+        }
+      }
+    });
     $stateProvider.state('profile', {
       url: '/profile',
       controller: 'appController',

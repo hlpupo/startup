@@ -9,3 +9,7 @@ municipality :
 user:
     type : rest
     resource: "@UserBundle/Resources/config/routing.yml"
+
+restaurant_api :
+  type: rest
+  resource: "RstaurantBundle:RestaurantApi"

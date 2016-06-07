@@ -1,10 +1,211 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
+<div class="container register">
+  <div class="row" ng-show="register === 'price'">
+    <div class="col-md-4">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="text-center">SMALL TEAM</h3>
+          <p class="text-center">MAX TEAM SIZE 25</p>
+        </div>
+        <div class="panel-body text-center">
+          <p class="lead" style="font-size:30px"><strong>$20/month</strong></p>
+        </div>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item">
+            <span class="glyphicon glyphicon-calendar"></span> Unlimited Events
+          </li>
+          <li class="list-group-item">
+            <span class="glyphicon glyphicon-envelope"></span> Unlimited Email Invitations
+          </li>
+          <li class="list-group-item">
+            <span class="glyphicon glyphicon-heart"></span> Fantastic Support
+          </li>
+        </ul>
+        <div class="panel-footer"> <div class="btn btn-lg btn-block btn-danger" ng-click="subscribe('1')">SUBSCRIBE</div> </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="text-center">MEDIUM TEAM</h3>
+          <p class="text-center">MAX TEAM SIZE 50</p>
+        </div>
+        <div class="panel-body text-center">
+          <p class="lead" style="font-size:30px"><strong>$40/month</strong></p>
+        </div>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item">
+            <span class="glyphicon glyphicon-calendar"></span> Unlimited Events
+          </li>
+          <li class="list-group-item">
+            <span class="glyphicon glyphicon-envelope"></span> Unlimited Email Invitations
+          </li>
+          <li class="list-group-item">
+            <span class="glyphicon glyphicon-heart"></span> Fantastic Support
+          </li>
+        </ul>
+        <div class="panel-footer"> <div class="btn btn-lg btn-block btn-danger" ng-click="subscribe('2')">SUBSCRIBE</div> </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="text-center">LARGE TEAM</h3>
+          <p class="text-center">MAX TEAM SIZE 100</p>
+        </div>
+        <div class="panel-body text-center">
+          <p class="lead" style="font-size:30px"><strong>$60/month</strong></p>
+        </div>
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item">
+            <span class="glyphicon glyphicon-calendar"></span> Unlimited Events
+          </li>
+          <li class="list-group-item">
+            <span class="glyphicon glyphicon-envelope"></span> Unlimited Email Invitations
+          </li>
+          <li class="list-group-item">
+            <span class="glyphicon glyphicon-heart"></span> Fantastic Support
+          </li>
+        </ul>
+        <div class="panel-footer"> <div class="btn btn-lg btn-block btn-danger" ng-click="subscribe('3')">SUBSCRIBE</div> </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" ng-show="register === 'register'">
+    <div class="page-header col-xs-offset-2">
+      <h3>Register your business</h3>
+    </div>
+    Drop File:
+    <!--<div ngf-drop ngf-select ng-model="files" class="drop-box"
+         ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+         accept="image/*,application/pdf"
+         ngf-pattern="'image/*,application/pdf'">Drop pdfs or images here or click to upload</div>-->
+    <input type="file" ngf-select ng-model="picFile" name="file"
+           accept="image/*" ngf-max-size="2MB" required
+           ngf-model-invalid="errorFiles">
+    <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="img-responsive img-portfolio img-hover">
+    <button ng-click="picFile = null" ng-show="picFile">Remove</button>
 
-</body>
-</html>
+
+
+
+
+    <form name="registerForm" id="form" method="POST" ng-submit="registerSubmit()" class="form-horizontal multiple-form-group">
+      <input type="hidden" name="_csrf">
+      <div class="form-group" ng-class="{ 'has-error': registerForm.name.$touched && registerForm.name.$invalid }">
+        <label for="name" class="col-xs-offset-2 col-xs-2 col-sm-1 control-label">[[ 'views.main.register.name' | translate]]</label>
+        <div class="col-xs-6 col-sm-5">
+          <input type="text" name="name" id="name" placeholder="[[ 'views.main.register.name' | translate]]"
+                 ng-model="sendData.name" autofocus="autofocus" class="form-control" required minlength="3">
+          <div class="help-block" ng-messages="registerForm.name.$error" ng-if="registerForm.name.$touched">
+            <p ng-message="minlength">Your name is too short.</p>
+            <p ng-message="maxlength">Your name is too long.</p>
+            <p ng-message="required">Your name is required.</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error': registerForm.email.$touched && registerForm.email.$invalid }">
+        <label for="email" class="col-xs-offset-2 col-xs-2 col-sm-1 control-label">[[ 'views.main.login.email' | translate]]</label>
+        <div class="col-xs-6 col-sm-5">
+          <input type="email" name="email" id="email" placeholder="[[ 'views.main.login.email' | translate]]" class="form-control"
+                 ng-model="sendData.email" required>
+          <div class="help-block" ng-messages="registerForm.email.$error" ng-if="registerForm.email.$touched">
+            <p ng-message="required">Your email is required.</p>
+            <p ng-message="email">This needs to be a valid email</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error': registerForm.username.$touched && registerForm.username.$invalid }">
+        <label for="username" class="col-xs-offset-2 col-xs-2 col-sm-1 control-label">[[ 'views.main.register.username' | translate]]</label>
+        <div class="col-xs-6 col-sm-5">
+          <div class="input-group">
+            <span class="input-group-addon">@</span>
+            <input type="text" class="form-control" placeholder="[[ 'views.main.register.username' | translate]]" name="username" id="username"
+                   ng-model="sendData.username" required>
+            <div class="help-block" ng-messages="registerForm.username.$error" ng-if="registerForm.username.$touched">
+              <p ng-message="required">Your username is required.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error': registerForm.password.$touched && registerForm.password.$invalid }">
+        <label for="password" class="col-xs-offset-2 col-xs-2 col-sm-1 control-label">[[ 'views.main.register.password' | translate]]</label>
+        <div class="col-xs-6 col-sm-5">
+          <input type="password" name="password" id="password" placeholder="[[ 'views.main.register.password' | translate]]"
+                 class="form-control" ng-model="sendData.password" required>
+          <div class="help-block" ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched">
+            <p ng-message="required">Your password is required.</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error': registerForm.confirmPassword.$touched && registerForm.confirmPassword.$invalid }">
+        <label for="confirmPassword" class="col-xs-offset-2 col-xs-2 col-sm-1 control-label">[[ 'views.main.register.confirmPassword' | translate]]</label>
+        <div class="col-xs-6 col-sm-5">
+          <input type="password" name="confirmPassword" id="confirmPassword" placeholder="[[ 'views.main.register.confirmPassword' | translate]]"
+                 class="form-control" ng-model="sendData.confirmPassword" required >
+          <div class="help-block" ng-messages="registerForm.confirmPassword.$error" ng-if="registerForm.confirmPassword.$touched">
+            <p ng-message="required">Please confirm your password.</p>
+            <p ng-show="!registerForm.confirmPassword.$error.required && registerForm.confirmPassword.$error.noMatch && registerForm.password.$dirty">Passwords do not match.</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error': registerForm.province.$touched && registerForm.province.$invalid }">
+        <label for="province" class="col-xs-offset-2 col-xs-2 col-sm-1 control-label">[[ 'views.place.province' | translate]]</label>
+        <div class="col-xs-6 col-sm-5">
+          <select ng-options="item as item.provinceName for item in locality track by item.provinceID"
+                  ng-model="province" class="form-control" name="province" id="province" required></select>
+          <div class="help-block" ng-messages="registerForm.province.$error" ng-if="registerForm.province.$touched">
+            <p ng-message="required">Your province is required.</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error': registerForm.municipality.$touched && registerForm.municipality.$invalid }">
+        <label for="municipality" class="col-xs-offset-2 col-xs-2 col-sm-1 control-label">[[ 'views.place.municipality' | translate]]</label>
+        <div class="col-xs-6 col-sm-5">
+          <select ng-options="item as item.name for item in province.municipality track by item.municipalityid"
+                  ng-model="municipality" class="form-control" name="municipality" id="municipality" required></select>
+          <div class="help-block" ng-messages="registerForm.municipality.$error" ng-if="registerForm.municipality.$touched">
+            <p ng-message="required">Your municipality is required.</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error': registerForm.phone.$touched && registerForm.phone.$invalid }">
+        <label for="phone" class="col-xs-offset-2 col-xs-2 col-sm-1 control-label">[[ 'views.main.register.phone' | translate]]</label>
+        <div class="col-xs-6 col-sm-5">
+          <input type="text" name="phone" id="phone" placeholder="[[ 'views.main.register.phone' | translate]]" class="form-control" required
+                 ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/"
+                 ng-model="sendData.phone"/>
+          <div class="help-block" ng-messages="registerForm.phone.$error" ng-if="registerForm.phone.$touched">
+            <p ng-message="required">Your phone number is required.</p>
+            <p ng-message="pattern">Must be a valid 10 digit phone number</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error': registerForm.code.$touched && registerForm.code.$invalid }">
+        <label for="confirmPassword" class="col-xs-offset-2 col-xs-2 col-sm-1 control-label">[[ 'views.main.register.code' | translate]]</label>
+        <div class="col-xs-6 col-sm-5">
+          <input type="text" name="code" id="code" placeholder="[[ 'views.main.register.code' | translate]]" class="form-control"
+                 ng-model="sendData.code" required >
+          <div class="help-block" ng-messages="registerForm.code.$error" ng-if="registerForm.code.$touched">
+            <p ng-message="required">Your code is required.</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error': registerForm.CIF.$touched && registerForm.CIF.$invalid }">
+        <label for="confirmPassword" class="col-xs-offset-2 col-xs-2 col-sm-1 control-label">[[ 'views.main.register.cif' | translate]]</label>
+        <div class="col-xs-6 col-sm-5">
+          <input type="test" name="CIF" id="CIF" placeholder="[[ 'views.main.register.cif' | translate]]" class="form-control"
+                 ng-model="sendData.cif" required>
+          <div class="help-block" ng-messages="registerForm.CIF.$error" ng-if="registerForm.CIF.$touched">
+            <p ng-message="required">Your CIF is required.</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-offset-4 col-sm-offset-3 col-xs-7">
+          <!--<button type="submit" class="btn btn-primary"  ng-disabled="!registerForm.$valid"><span class="ion-person-add"></span>Register</button>-->
+          <button type="submit" class="btn btn-primary"  ><span class="ion-person-add"></span>Register</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

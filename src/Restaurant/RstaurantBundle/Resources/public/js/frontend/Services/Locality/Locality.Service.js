@@ -3,27 +3,26 @@
  */
 (function () {
   'use strict';
-  angular.module('RestaurantApp.RestaurantApp.Services').factory('$Locality', Locality);
-  Locality.$inject = ['$http', '$q', 'PATH']
+  angular.module('RestaurantApp.Services').factory('$Locality', Locality);
+  Locality.$inject = ['$http', '$q', 'PATH'];
   function Locality($http, $q, PATH) {
     var obj = {};
     return {
-      getLocality: function () {
-        //return obj;
+      getLocality: function (fa) {
         if(obj.length){
-          return obj;
+          fa(obj);
         } else {
-          return this.getLocality(function(){
-            return obj;
+          this.loadLocality().then(function(data){
+              angular.extend(obj, data);
+              fa(obj);
           });
         }
-
       },
       setLocality: function (objP) {
         angular.extend(obj, objP);
         return obj;
       },
-      loadLocality: function(fa) {
+      loadLocality: function() {
         var deferred = $q.defer();
         $http({
           method: 'GET',
@@ -34,10 +33,7 @@
         }).error(function (data) {
           deferred.reject(data);
         });
-        deferred.promise.then(function(data){
-          angular.extend(obj, data);
-          fa();
-        });
+        return deferred.promise;
       }
     };
   }

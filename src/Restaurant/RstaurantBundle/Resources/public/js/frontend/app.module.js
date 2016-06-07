@@ -19,6 +19,7 @@
     'RestaurantApp.Controllers',
     'RestaurantApp.Directives',
     'RestaurantApp.Services',
-    'ngSanitize'
+    'ngSanitize',
+    'ngFileUpload'
   ]);
 })();
